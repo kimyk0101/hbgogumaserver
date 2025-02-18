@@ -4,27 +4,27 @@
 <mapper namespace="himedia.hbgoguma.mappers.GogumaNotificationMapper">
 	<select id="selectAll" 
 		resultType="gogumaNoti">
-	SELECT * FROM goguma_notification ORDER BY uid DESC
+	SELECT * FROM goguma_notification ORDER BY nid DESC
 	</select>
 	
 	<select id="selectOne"
 		parameterType="long"
 		resultType="gogumaNoti">
-	SELECT * FROM goguma_notification WHERE id=#{id}
+	SELECT * FROM goguma_notification WHERE nid=#{nid}
 	</select>
 	
 	<insert id="insert" parameterType="gogumaNoti">
-	INSERT INTO goguma_notification (name, hp, tel)
-	VALUES(#{name}, #{hp}, #{tel})
+	INSERT INTO goguma_notification (receiveUid, sendUid, notiCategory, notiContent)
+	VALUES(#{receiveUid}, #{sendUid}, #{notiCategory}, #{notiContent})
 	</insert>
 	
 	<update id="update" parameterType="gogumaNoti">
 	UPDATE goguma_notification SET
-	name=#{name}, hp=#{hp}, tel=#{tel}
-	WHERE id=#{id}
+	receiveUid=#{receiveUid}, sendUid=#{sendUid}, notiCategory=#{notiCategory}, notiContent=#{notiContent} 
+	WHERE nid=#{nid}
 	</update>
 
-	<delete id="delete" parameterType="int">
-	DELETE FROM goguma_notification WHERE id=#{id}
+	<delete id="delete" parameterType="long">
+	DELETE FROM goguma_notification WHERE nid=#{nid}
 	</delete>
 </mapper>

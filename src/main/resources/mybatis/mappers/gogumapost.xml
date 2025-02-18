@@ -14,14 +14,15 @@
 	</select>
 	
 	<insert id="insert" parameterType="gogumaPost">
-	INSERT INTO goguma_post (name, hp, tel)
-	VALUES(#{name}, #{hp}, #{tel})
+	INSERT INTO goguma_post (uid, selected_uid, locaGu, locaDong, postTitle, postPhoto, postContent, postCategory, userList, reportCnt)
+	VALUES(#{uid}, #{selected_uid}, #{locaGu}, #{locaDong}, #{postTitle}, #{postPhoto}, #{postContent}, #{postCategory}, #{userList}, #{reportCnt})
 	</insert>
 	
 	<update id="update" parameterType="gogumaPost">
 	UPDATE goguma_post SET
-	name=#{name}, hp=#{hp}, tel=#{tel}
-	WHERE id=#{id}
+	uid=#{uid}, selected_uid=#{selected_uid}, locaGu=#{locaGu}, locaDong=#{locaDong}, postTitle=#{postTitle}, 
+	postPhoto=#{postPhoto}, postContent=#{postContent}, postCategory=#{postCategory}, userList=#{userList}, reportCnt=#{reportCnt}
+	WHERE pid=#{pid}
 	</update>
 
 	<delete id="delete" parameterType="long">

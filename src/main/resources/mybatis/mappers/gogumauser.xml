@@ -11,21 +11,22 @@
 	<select id="selectOne"
 		parameterType="long"
 		resultType="gogumaUser">
-	SELECT * FROM goguma_user WHERE id=#{id}
+	SELECT * FROM goguma_user WHERE uid=#{uid}
 	</select>
 	
 	<insert id="insert" parameterType="gogumaUser">
-	INSERT INTO goguma_user (name, hp, tel)
-	VALUES(#{name}, #{hp}, #{tel})
+	INSERT INTO goguma_user (name, nickname, password, telNumber, email, locaGu, locaDong, thumbnail, recommend_uid, pumpkin_point, userRate, registerDate, isDeleted)
+	VALUES(#{name}, #{nickname}, #{password}, #{telNumber}, #{email}, #{locaGu}, #{locaDong}, #{thumbnail}, #{recommend_uid}, #{pumpkin_point}, #{userRate}, #{registerDate}, #{isDeleted})
 	</insert>
 	
 	<update id="update" parameterType="gogumaUser">
 	UPDATE goguma_user SET
-	name=#{name}, hp=#{hp}, tel=#{tel}
-	WHERE id=#{id}
+	name=#{name}, nickname=#{nickname}, password=#{password}, telNumber=#{telNumber}, email=#{email}, locaGu=#{locaGu}, locaDong=#{locaDong}, thumbnail=#{thumbnail}, recommend_uid=#{recommend_uid}, 
+	pumpkin_point=#{pumpkin_point}, userRate=#{userRate}, registerDate=#{registerDate}, isDeleted=#{isDeleted}
+	WHERE uid=#{uid}
 	</update>
 
 	<delete id="delete" parameterType="int">
-	DELETE FROM goguma_user WHERE id=#{id}
+	DELETE FROM goguma_user WHERE uid=#{uid}
 	</delete>
 </mapper>
