@@ -2,8 +2,11 @@ package himedia.hbgoguma.mappers;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import himedia.hbgoguma.repository.vo.GogumaReviewHistory;
 
+@Mapper
 public interface GogumaReviewHistoryMapper {
 //	<select id="selectAllReviews" resultType="GogumaReviewHistory">
 	List<GogumaReviewHistory> selectAllReviews();

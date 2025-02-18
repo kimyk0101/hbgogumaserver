@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="himedia.hbgoguma.mappers.GogumaPostMapper">
+	<select id="selectAll" 
+		resultType="gogumaPost">
+	SELECT * FROM goguma_post ORDER BY pid DESC
+	</select>
+	
+	<select id="selectOne"
+		parameterType="long"
+		resultType="gogumaPost">
+	SELECT * FROM goguma_post WHERE pid=#{pid}
+	</select>
+	
+	<insert id="insert" parameterType="gogumaPost">
+	INSERT INTO goguma_post (name, hp, tel)
+	VALUES(#{name}, #{hp}, #{tel})
+	</insert>
+	
+	<update id="update" parameterType="gogumaPost">
+	UPDATE goguma_post SET
+	name=#{name}, hp=#{hp}, tel=#{tel}
+	WHERE id=#{id}
+	</update>
+
+	<delete id="delete" parameterType="long">
+	DELETE FROM goguma_post WHERE pid=#{pid}
+	</delete>
+</mapper>

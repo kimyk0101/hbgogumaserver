@@ -2,8 +2,11 @@ package himedia.hbgoguma.mappers;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import himedia.hbgoguma.repository.vo.GogumaNotification;
 
+@Mapper
 public interface GogumaNotificationMapper {
 //	<select id="selectAllNotifications" resultType="GogumaNotification">
 	List<GogumaNotification> selectAllNotifications();

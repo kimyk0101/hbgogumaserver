@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="himedia.hbgoguma.mappers.GogumaReviewMapper">
+	<select id="selectAll" 
+		resultType="gogumaReview">
+	SELECT * FROM goguma_review ORDER BY hid DESC
+	</select>
+	
+	<select id="selectOne"
+		parameterType="long"
+		resultType="gogumaReview">
+	SELECT * FROM goguma_review WHERE hid=#{hid}
+	</select>
+	
+	<insert id="insert" parameterType="gogumaReview">
+	INSERT INTO goguma_review (name, hp, tel)
+	VALUES(#{name}, #{hp}, #{tel})
+	</insert>
+	
+	<update id="update" parameterType="gogumaReview">
+	UPDATE goguma_review SET
+	name=#{name}, hp=#{hp}, tel=#{tel}
+	WHERE hid=#{hid}
+	</update>
+
+	<delete id="delete" parameterType="long">
+	DELETE FROM goguma_review WHERE hid=#{hid}
+	</delete>
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="himedia.hbgoguma.mappers.GogumaUserMapper">
+	
+	<select id="selectAll" 
+		resultType="gogumaUser">
+	SELECT * FROM goguma_user ORDER BY uid DESC
+	</select>
+	
+	<select id="selectOne"
+		parameterType="long"
+		resultType="gogumaUser">
+	SELECT * FROM goguma_user WHERE id=#{id}
+	</select>
+	
+	<insert id="insert" parameterType="gogumaUser">
+	INSERT INTO goguma_user (name, hp, tel)
+	VALUES(#{name}, #{hp}, #{tel})
+	</insert>
+	
+	<update id="update" parameterType="gogumaUser">
+	UPDATE goguma_user SET
+	name=#{name}, hp=#{hp}, tel=#{tel}
+	WHERE id=#{id}
+	</update>
+
+	<delete id="delete" parameterType="int">
+	DELETE FROM goguma_user WHERE id=#{id}
+	</delete>
+</mapper>

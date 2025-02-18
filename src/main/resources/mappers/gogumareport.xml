@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="himedia.hbgoguma.mappers.GogumaReportMapper">
+	<select id="selectAll" 
+		resultType="gogumaReport">
+	SELECT * FROM goguma_report ORDER BY rid DESC
+	</select>
+	
+	<select id="selectOne"
+		parameterType="long"
+		resultType="gogumaReport">
+	SELECT * FROM goguma_report WHERE rid=#{rid}
+	</select>
+	
+	<insert id="insert" parameterType="gogumaReport">
+	INSERT INTO goguma_report (name, hp, tel)
+	VALUES(#{name}, #{hp}, #{tel})
+	</insert>
+	
+	<update id="update" parameterType="gogumaReport">
+	UPDATE goguma_report SET
+	name=#{name}, hp=#{hp}, tel=#{tel}
+	WHERE id=#{id}
+	</update>
+
+	<delete id="delete" parameterType="long">
+	DELETE FROM goguma_report WHERE rid=#{rid}
+	</delete>
+</mapper>
