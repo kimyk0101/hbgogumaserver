@@ -17,6 +17,7 @@ import lombok.ToString;
 public class GogumaPost {
 	private Long pid;				// 게시글 번호
 	private Long uid;				// 작성자 유저번호
+	private Long selectedUid;		// 구매확정자 유저번호
 	private Integer locaGu;			// 작성자 구 정보
 	private Integer locaDong;		// 작성자 동 정보
 	private String postTitle; 		// 게시글 제목

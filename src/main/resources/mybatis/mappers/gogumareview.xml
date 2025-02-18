@@ -4,27 +4,27 @@
 <mapper namespace="himedia.hbgoguma.mappers.GogumaReviewMapper">
 	<select id="selectAll" 
 		resultType="gogumaReview">
-	SELECT * FROM goguma_review ORDER BY hid DESC
+	SELECT * FROM goguma_review_history ORDER BY hid DESC
 	</select>
 	
 	<select id="selectOne"
 		parameterType="long"
 		resultType="gogumaReview">
-	SELECT * FROM goguma_review WHERE hid=#{hid}
+	SELECT * FROM goguma_review_history WHERE hid=#{hid}
 	</select>
 	
 	<insert id="insert" parameterType="gogumaReview">
-	INSERT INTO goguma_review (name, hp, tel)
+	INSERT INTO goguma_review_history (name, hp, tel)
 	VALUES(#{name}, #{hp}, #{tel})
 	</insert>
 	
 	<update id="update" parameterType="gogumaReview">
-	UPDATE goguma_review SET
+	UPDATE goguma_review_history SET
 	name=#{name}, hp=#{hp}, tel=#{tel}
 	WHERE hid=#{hid}
 	</update>
 
 	<delete id="delete" parameterType="long">
-	DELETE FROM goguma_review WHERE hid=#{hid}
+	DELETE FROM goguma_review_history WHERE hid=#{hid}
 	</delete>
 </mapper>
