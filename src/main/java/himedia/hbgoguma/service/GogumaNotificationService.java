@@ -27,7 +27,7 @@ public class GogumaNotificationService {
 		return gogumaNotiMapper.selectByNid(nid);
 	}
 	
-	public GogumaNotification updateUser(GogumaNotification noti) {
+	public GogumaNotification updateNotification(GogumaNotification noti) {
 		gogumaNotiMapper.updateNotification(noti);
 		
 		return noti;
