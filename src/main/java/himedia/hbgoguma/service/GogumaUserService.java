@@ -3,10 +3,12 @@ package himedia.hbgoguma.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import himedia.hbgoguma.mappers.GogumaUserMapper;
 import himedia.hbgoguma.repository.vo.GogumaUser;
 
+@Service
 public class GogumaUserService {
 	@Autowired
 	private GogumaUserMapper gogumaUserMapper;
