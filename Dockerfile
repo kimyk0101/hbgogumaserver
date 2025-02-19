@@ -18,8 +18,8 @@ EXPOSE 8090
 ENTRYPOINT ["java", "-jar", "/app/hbgogumaserver.jar"]
 
 # build
-# docker build -t myrestserver .
+# docker build -t hbgogumaserver .
 
 # run
 # mysql-container 먼저 실행
-# docker run -d -p 18088:8088 --name myrestserver -e SPRING_DATASOURCE_URL=jdbc:mysql://mysql-container:3306/webdb --network my-network myrestserver
+# docker run -d -p 18090:8090 --name hbgogumaserver -e SPRING_DATASOURCE_URL=jdbc:mysql://192.168.0.61:3306/webdb --network my-network hbgogumaserver
