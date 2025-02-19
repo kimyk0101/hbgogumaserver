@@ -15,7 +15,7 @@
 	
 	<insert id="insert" parameterType="gogumaPost">
 	INSERT INTO goguma_post (uid, selected_uid, locaGu, locaDong, postTitle, postPhoto, postContent, postCategory, userList, reportCnt)
-	VALUES(#{uid}, #{selected_uid}, #{locaGu}, #{locaDong}, #{postTitle}, #{postPhoto}, #{postContent}, #{postCategory}, #{userList}, #{reportCnt})
+	VALUES (#{uid}, #{selected_uid}, #{locaGu}, #{locaDong}, #{postTitle}, #{postPhoto}, #{postContent}, #{postCategory}, #{userList}, #{reportCnt})
 	</insert>
 	
 	<update id="update" parameterType="gogumaPost">

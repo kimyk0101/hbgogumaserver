@@ -11,6 +11,11 @@
 		<typeAlias alias="gogumaReview" type="himedia.hbgoguma.repository.vo.GogumaReviewHistory" />
 		<typeAlias alias="gogumaReport" type="himedia.hbgoguma.repository.vo.GogumaReport" />
 	</typeAliases>
+	
+	<!-- 타입 핸들러 등록 -->
+	<typeHandlers>
+	    <typeHandler handler="himedia.hbgoguma.typehandler.JsonListTypeHandler" javaType="java.util.List"/>
+	</typeHandlers>
 
 	<!-- Mapper 등록 -->
 	<mappers>
