@@ -14,13 +14,13 @@
 	</select>
 	
 	<insert id="insert" parameterType="gogumaNoti">
-	INSERT INTO goguma_notification (receiveUid, sendUid, notiCategory, notiContent)
-	VALUES(#{receiveUid}, #{sendUid}, #{notiCategory}, #{notiContent})
+	INSERT INTO goguma_notification (receive_uid, send_uid, noti_category, noti_content)
+	VALUES(#{receive_uid}, #{send_uid}, #{noti_category}, #{noti_content})
 	</insert>
 	
 	<update id="update" parameterType="gogumaNoti">
 	UPDATE goguma_notification SET
-	receiveUid=#{receiveUid}, sendUid=#{sendUid}, notiCategory=#{notiCategory}, notiContent=#{notiContent} 
+	receive_uid=#{receive_uid}, send_uid=#{send_uid}, noti_category=#{noti_category}, noti_content=#{noti_content} 
 	WHERE nid=#{nid}
 	</update>
 

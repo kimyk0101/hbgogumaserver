@@ -15,14 +15,20 @@
 	</select>
 	
 	<insert id="insert" parameterType="gogumaUser">
-	INSERT INTO goguma_user (name, nickname, password, telNumber, email, locaGu, locaDong, thumbnail, recommend_uid, pumpkin_point, userRate, registerDate, isDeleted)
-	VALUES(#{name}, #{nickname}, #{password}, #{telNumber}, #{email}, #{locaGu}, #{locaDong}, #{thumbnail}, #{recommend_uid}, #{pumpkin_point}, #{userRate}, #{registerDate}, #{isDeleted})
+	INSERT INTO goguma_user (name, nickname, password, tel_number, email, 
+							loca_gu, loca_dong, thumbnail, recommend_uid, pumpkin_point, 
+							user_rate, register_date, is_deleted)
+	VALUES (#{name}, #{nickname}, #{password}, #{tel_number}, #{email}, #{loca_gu}, 
+			#{loca_dong}, #{thumbnail}, #{recommend_uid}, #{pumpkin_point}, #{user_rate}, 
+			#{register_date}, #{is_deleted})
 	</insert>
 	
 	<update id="update" parameterType="gogumaUser">
 	UPDATE goguma_user SET
-	name=#{name}, nickname=#{nickname}, password=#{password}, telNumber=#{telNumber}, email=#{email}, locaGu=#{locaGu}, locaDong=#{locaDong}, thumbnail=#{thumbnail}, recommend_uid=#{recommend_uid}, 
-	pumpkin_point=#{pumpkin_point}, userRate=#{userRate}, registerDate=#{registerDate}, isDeleted=#{isDeleted}
+	name=#{name}, nickname=#{nickname}, password=#{password}, telNumber=#{tel_number}, 
+	email=#{email}, locaGu=#{loca_gu}, locaDong=#{loca_dong}, thumbnail=#{thumbnail}, 
+	recommend_uid=#{recommend_uid}, pumpkin_point=#{pumpkin_point}, userRate=#{user_rate}, 
+	registerDate=#{register_date}, isDeleted=#{is_deleted}
 	WHERE uid=#{uid}
 	</update>
 

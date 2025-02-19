@@ -14,13 +14,13 @@
 	</select>
 	
 	<insert id="insert" parameterType="gogumaReport">
-	INSERT INTO goguma_report (uid, pid, reportId, isConfirmed)
-	VALUES(#{uid}, #{pid}, #{reportId}, #{isConfirmed})
+	INSERT INTO goguma_report (uid, pid, report_id, is_confirmed)
+	VALUES(#{uid}, #{pid}, #{report_id}, #{is_confirmed})
 	</insert>
 	
 	<update id="update" parameterType="gogumaReport">
 	UPDATE goguma_report SET
-	uid=#{uid}, pid=#{pid}, reportId=#{reportId}, isConfirmed=#{isConfirmed} 
+	uid=#{uid}, pid=#{pid}, reportId=#{report_id}, isConfirmed=#{is_confirmed} 
 	WHERE rid=#{rid}
 	</update>
 

@@ -14,14 +14,14 @@
 	</select>
 	
 	<insert id="insert" parameterType="gogumaPost">
-	INSERT INTO goguma_post (uid, selected_uid, locaGu, locaDong, postTitle, postPhoto, postContent, postCategory, userList, reportCnt)
-	VALUES (#{uid}, #{selected_uid}, #{locaGu}, #{locaDong}, #{postTitle}, #{postPhoto}, #{postContent}, #{postCategory}, #{userList}, #{reportCnt})
+	INSERT INTO goguma_post (uid, selected_uid, loca_gu, loca_dong, post_title, post_photo, post_content, post_category, post_price, user_list, report_cnt)
+	VALUES (#{uid}, #{selected_uid}, #{loca_gu}, #{loca_dong}, #{post_title}, #{post_photo}, #{post_content}, #{post_category}, #{post_price}, #{user_list}, #{report_cnt})
 	</insert>
 	
 	<update id="update" parameterType="gogumaPost">
 	UPDATE goguma_post SET
-	uid=#{uid}, selected_uid=#{selected_uid}, locaGu=#{locaGu}, locaDong=#{locaDong}, postTitle=#{postTitle}, 
-	postPhoto=#{postPhoto}, postContent=#{postContent}, postCategory=#{postCategory}, userList=#{userList}, reportCnt=#{reportCnt}
+	uid=#{uid}, selected_uid=#{selected_uid}, loca_gu=#{loca_gu}, loca_dong=#{loca_dong}, post_title=#{post_title}, 
+	post_photo=#{post_photo}, post_content=#{post_content}, post_category=#{post_category}, post_price=#{post_price}, user_list=#{user_list}, report_cnt=#{report_cnt}
 	WHERE pid=#{pid}
 	</update>
 

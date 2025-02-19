@@ -14,13 +14,13 @@
 	</select>
 	
 	<insert id="insert" parameterType="gogumaReview">
-	INSERT INTO goguma_review_history (sendUid, receiveUid, reviewContent, reviewPoint, rewardPoint)
-	VALUES(#{sendUid}, #{receiveUid}, #{reviewContent}, #{reviewPoint}, #{rewardPoint})
+	INSERT INTO goguma_review_history (send_uid, receive_uid, review_content, review_point, reward_point)
+	VALUES(#{send_uid}, #{receive_uid}, #{review_content}, #{review_point}, #{reward_point})
 	</insert>
 	
 	<update id="update" parameterType="gogumaReview">
 	UPDATE goguma_review_history SET
-	sendUid=#{sendUid}, receiveUid=#{receiveUid}, reviewContent=#{reviewContent}, reviewPoint=#{reviewPoint}, rewardPoint=#{rewardPoint}
+	send_uid=#{send_uid}, receive_uid=#{receive_uid}, review_content=#{review_content}, review_point=#{review_point}, reward_point=#{reward_point}
 	WHERE hid=#{hid}
 	</update>
 
