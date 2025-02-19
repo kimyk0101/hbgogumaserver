@@ -68,6 +68,8 @@
 	</dependencies>
 
 	<build>
+		<!-- 최종 프로덕트 파일명 -->
+		<finalName>hbgogumaserver</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
