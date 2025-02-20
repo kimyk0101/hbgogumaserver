@@ -1,0 +1,23 @@
+package himedia.hbgoguma.repository.vo;
+
+import java.util.Date;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+public class GogumaChat {
+	 private long cid;
+	 private long pid;
+	 private long seller_uid;
+	 private long buyer_uid;
+	 private String chatContent;
+	 private Date updateTime;
+}

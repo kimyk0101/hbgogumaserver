@@ -5,6 +5,7 @@
 <configuration>
 	<!-- VO 객체의 별칭 등록 -->
 	<typeAliases>
+		<typeAlias alias="gogumaChat" type="himedia.hbgoguma.repository.vo.GogumaChat" />
 		<typeAlias alias="gogumaUser" type="himedia.hbgoguma.repository.vo.GogumaUser" />
 		<typeAlias alias="gogumaPost" type="himedia.hbgoguma.repository.vo.GogumaPost" />
 		<typeAlias alias="gogumaNoti" type="himedia.hbgoguma.repository.vo.GogumaNotification" />
@@ -19,6 +20,7 @@
 
 	<!-- Mapper 등록 -->
 	<mappers>
+		<mapper resource="mybatis/mappers/gogumachat.xml" />
 		<mapper resource="mybatis/mappers/gogumauser.xml" />
 		<mapper resource="mybatis/mappers/gogumapost.xml" />
 		<mapper resource="mybatis/mappers/gogumanoti.xml" />

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="himedia.hbgoguma.mappers.GogumaChatMapper">
+	<select id="selectAllChats" 
+		resultType="gogumaChat">
+	SELECT * FROM goguma_chat ORDER BY cid DESC
+	</select>
+	
+	<select id="selectChatByCid"
+		parameterType="long"
+		resultType="gogumaChat">
+	SELECT * FROM goguma_chat WHERE cid=#{cid}
+	</select>
+	
+	<insert id="insertChat" parameterType="gogumaChat">
+	INSERT INTO goguma_chat (pid, seller_uid, buyer_uid, chatContent)
+	VALUES(#{pid}, #{seller_uid}, #{buyer_uid}, #{chatContent})
+	</insert>
+	
+	<update id="updateChat" parameterType="gogumaChat">
+	UPDATE goguma_chat SET
+	pid=#{pid}, seller_uid=#{seller_uid}, buyer_uid=#{buyer_uid}, chatContent=#{chatContent} 
+	WHERE cid=#{cid}
+	</update>
+
+	<delete id="deleteChat" parameterType="long">
+	DELETE FROM goguma_chat WHERE cid=#{cid}
+	</delete>
+</mapper>
