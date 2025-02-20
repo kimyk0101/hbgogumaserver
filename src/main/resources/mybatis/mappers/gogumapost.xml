@@ -8,7 +8,7 @@
 	</select>
 	
 	<select id="selectByPid"
-		parameterType="long"
+		parameterType="Long"
 		resultType="gogumaPost">
 	SELECT * FROM goguma_post WHERE pid=#{pid}
 	</select>
@@ -25,7 +25,7 @@
 	WHERE pid=#{pid}
 	</update>
 
-	<delete id="deletePost" parameterType="long">
+	<delete id="deletePost" parameterType="Long">
 	DELETE FROM goguma_post WHERE pid=#{pid}
 	</delete>
 </mapper>

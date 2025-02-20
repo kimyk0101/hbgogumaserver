@@ -8,7 +8,7 @@
 	</select>
 	
 	<select id="selectByHid"
-		parameterType="long"
+		parameterType="Long"
 		resultType="gogumaReview">
 	SELECT * FROM goguma_review_history WHERE hid=#{hid}
 	</select>
@@ -24,7 +24,7 @@
 	WHERE hid=#{hid}
 	</update>
 
-	<delete id="deleteReview" parameterType="long">
+	<delete id="deleteReview" parameterType="Long">
 	DELETE FROM goguma_review_history WHERE hid=#{hid}
 	</delete>
 </mapper>

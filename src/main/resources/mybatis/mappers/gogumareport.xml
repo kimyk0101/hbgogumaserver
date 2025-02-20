@@ -8,7 +8,7 @@
 	</select>
 	
 	<select id="selectByRid"
-		parameterType="long"
+		parameterType="Long"
 		resultType="gogumaReport">
 	SELECT * FROM goguma_report WHERE rid=#{rid}
 	</select>
@@ -24,7 +24,7 @@
 	WHERE rid=#{rid}
 	</update>
 
-	<delete id="deleteReport" parameterType="long">
+	<delete id="deleteReport" parameterType="Long">
 	DELETE FROM goguma_report WHERE rid=#{rid}
 	</delete>
 </mapper>

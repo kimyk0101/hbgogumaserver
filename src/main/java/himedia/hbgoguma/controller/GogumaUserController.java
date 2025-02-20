@@ -29,11 +29,18 @@ public class GogumaUserController {
 		return ResponseEntity.ok(items);
 	}
 	
+//	POST : /api/gogumauser -> 기존 유저 찾기
+	@GetMapping("/nickname={nickname}&password={password}")
+	public ResponseEntity<GogumaUser> loginUser(@PathVariable String nickname, @PathVariable String password) {
+		GogumaUser loginUser = gogumaUserSerivce.loginUser(nickname, password);
+		return ResponseEntity.ok(loginUser);
+	}
+	
 //	POST : /api/gogumauser -> 새로운 유저 항목 생성
 	@PostMapping
 	public ResponseEntity<GogumaUser> createUser(@RequestBody GogumaUser user) {
 		GogumaUser savedUser = gogumaUserSerivce.registerUser(user);
-		return ResponseEntity.ok(savedUser);	
+		return ResponseEntity.ok(savedUser);
 		//	ResponseEntity.created로 하는 것이 의미상 더 나을 수도 있다.
 	}
 	

@@ -13,12 +13,20 @@ public class GogumaUserService {
 	@Autowired
 	private GogumaUserMapper gogumaUserMapper;
 
+	// 전체 유저 불러오기
 	public List<GogumaUser> selectAllUsers() {
 		List<GogumaUser> users = gogumaUserMapper.selectAllUsers();
 		
 		return users;
 	}
 	
+	public GogumaUser loginUser(String nickname, String password) {
+		GogumaUser user = gogumaUserMapper.loginUser(nickname, password);
+		
+		return user;
+	}
+	
+	// 회원가입
 	public GogumaUser registerUser(GogumaUser user) {
 		gogumaUserMapper.registerUser(user);
 		
@@ -27,12 +35,14 @@ public class GogumaUserService {
 		return gogumaUserMapper.selectByUid(uid);
 	}
 	
+	// 유저 정보 수정
 	public GogumaUser updateUser(GogumaUser user) {
 		gogumaUserMapper.updateUser(user);
 		
 		return user;
 	}
 	
+	// 유저 삭제
 	public int deleteUser(Long uid) {
 		return gogumaUserMapper.deleteUser(uid);
 	}

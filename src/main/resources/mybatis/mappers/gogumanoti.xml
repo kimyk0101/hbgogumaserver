@@ -8,7 +8,7 @@
 	</select>
 	
 	<select id="selectByNid"
-		parameterType="long"
+		parameterType="Long"
 		resultType="gogumaNoti">
 	SELECT * FROM goguma_notification WHERE nid=#{nid}
 	</select>
@@ -24,7 +24,7 @@
 	WHERE nid=#{nid}
 	</update>
 
-	<delete id="deleteNotification" parameterType="long">
+	<delete id="deleteNotification" parameterType="Long">
 	DELETE FROM goguma_notification WHERE nid=#{nid}
 	</delete>
 </mapper>

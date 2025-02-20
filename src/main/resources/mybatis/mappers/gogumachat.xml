@@ -8,7 +8,7 @@
 	</select>
 	
 	<select id="selectChatByCid"
-		parameterType="long"
+		parameterType="Long"
 		resultType="gogumaChat">
 	SELECT * FROM goguma_chat WHERE cid=#{cid}
 	</select>
@@ -24,7 +24,7 @@
 	WHERE cid=#{cid}
 	</update>
 
-	<delete id="deleteChat" parameterType="long">
+	<delete id="deleteChat" parameterType="Long">
 	DELETE FROM goguma_chat WHERE cid=#{cid}
 	</delete>
 </mapper>
