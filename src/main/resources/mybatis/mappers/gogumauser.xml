@@ -3,18 +3,18 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="himedia.hbgoguma.mappers.GogumaUserMapper">
 	
-	<select id="selectAll" 
+	<select id="selectAllUsers" 
 		resultType="gogumaUser">
 	SELECT * FROM goguma_user ORDER BY uid DESC
 	</select>
 	
-	<select id="selectOne"
+	<select id="selectByUid"
 		parameterType="long"
 		resultType="gogumaUser">
 	SELECT * FROM goguma_user WHERE uid=#{uid}
 	</select>
 	
-	<insert id="insert" parameterType="gogumaUser">
+	<insert id="registerUser" parameterType="gogumaUser">
 	INSERT INTO goguma_user (name, nickname, password, tel_number, email, 
 							loca_gu, loca_dong, thumbnail, recommend_uid, pumpkin_point, 
 							user_rate, register_date, is_deleted)
@@ -23,7 +23,7 @@
 			#{register_date}, #{is_deleted})
 	</insert>
 	
-	<update id="update" parameterType="gogumaUser">
+	<update id="updateUser" parameterType="gogumaUser">
 	UPDATE goguma_user SET
 	name=#{name}, nickname=#{nickname}, password=#{password}, telNumber=#{tel_number}, 
 	email=#{email}, locaGu=#{loca_gu}, locaDong=#{loca_dong}, thumbnail=#{thumbnail}, 
@@ -32,7 +32,7 @@
 	WHERE uid=#{uid}
 	</update>
 
-	<delete id="delete" parameterType="int">
+	<delete id="deleteUser" parameterType="int">
 	DELETE FROM goguma_user WHERE uid=#{uid}
 	</delete>
 </mapper>

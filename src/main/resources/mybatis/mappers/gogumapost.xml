@@ -2,30 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="himedia.hbgoguma.mappers.GogumaPostMapper">
-	<select id="selectAll" 
+	<select id="selectAllPosts" 
 		resultType="gogumaPost">
 	SELECT * FROM goguma_post ORDER BY pid DESC
 	</select>
 	
-	<select id="selectOne"
+	<select id="selectByPid"
 		parameterType="long"
 		resultType="gogumaPost">
 	SELECT * FROM goguma_post WHERE pid=#{pid}
 	</select>
 	
-	<insert id="insert" parameterType="gogumaPost">
+	<insert id="insertPost" parameterType="gogumaPost">
 	INSERT INTO goguma_post (uid, selected_uid, loca_gu, loca_dong, post_title, post_photo, post_content, post_category, post_price, user_list, report_cnt)
 	VALUES (#{uid}, #{selected_uid}, #{loca_gu}, #{loca_dong}, #{post_title}, #{post_photo}, #{post_content}, #{post_category}, #{post_price}, #{user_list}, #{report_cnt})
 	</insert>
 	
-	<update id="update" parameterType="gogumaPost">
+	<update id="updatePost" parameterType="gogumaPost">
 	UPDATE goguma_post SET
 	uid=#{uid}, selected_uid=#{selected_uid}, loca_gu=#{loca_gu}, loca_dong=#{loca_dong}, post_title=#{post_title}, 
 	post_photo=#{post_photo}, post_content=#{post_content}, post_category=#{post_category}, post_price=#{post_price}, user_list=#{user_list}, report_cnt=#{report_cnt}
 	WHERE pid=#{pid}
 	</update>
 
-	<delete id="delete" parameterType="long">
+	<delete id="deletePost" parameterType="long">
 	DELETE FROM goguma_post WHERE pid=#{pid}
 	</delete>
 </mapper>

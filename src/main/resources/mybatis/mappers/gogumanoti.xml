@@ -2,29 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="himedia.hbgoguma.mappers.GogumaNotificationMapper">
-	<select id="selectAll" 
+	<select id="selectAllNotifications" 
 		resultType="gogumaNoti">
 	SELECT * FROM goguma_notification ORDER BY nid DESC
 	</select>
 	
-	<select id="selectOne"
+	<select id="selectByNid"
 		parameterType="long"
 		resultType="gogumaNoti">
 	SELECT * FROM goguma_notification WHERE nid=#{nid}
 	</select>
 	
-	<insert id="insert" parameterType="gogumaNoti">
+	<insert id="insertNotification" parameterType="gogumaNoti">
 	INSERT INTO goguma_notification (receive_uid, send_uid, noti_category, noti_content)
 	VALUES(#{receive_uid}, #{send_uid}, #{noti_category}, #{noti_content})
 	</insert>
 	
-	<update id="update" parameterType="gogumaNoti">
+	<update id="updateNotification" parameterType="gogumaNoti">
 	UPDATE goguma_notification SET
 	receive_uid=#{receive_uid}, send_uid=#{send_uid}, noti_category=#{noti_category}, noti_content=#{noti_content} 
 	WHERE nid=#{nid}
 	</update>
 
-	<delete id="delete" parameterType="long">
+	<delete id="deleteNotification" parameterType="long">
 	DELETE FROM goguma_notification WHERE nid=#{nid}
 	</delete>
 </mapper>
