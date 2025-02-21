@@ -1,6 +1,8 @@
 package himedia.hbgoguma.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,8 +22,12 @@ public class GogumaUserService {
 		return users;
 	}
 	
-	public GogumaUser loginUser(String nickname, String password) {
-		GogumaUser user = gogumaUserMapper.loginUser(nickname, password);
+	public GogumaUser loginUser(String email, String password) {
+		Map<String, String> userMap = new HashMap<>();
+		userMap.put("email", email);
+		userMap.put("password", password);
+		
+		GogumaUser user = gogumaUserMapper.loginUser(userMap);
 		
 		return user;
 	}

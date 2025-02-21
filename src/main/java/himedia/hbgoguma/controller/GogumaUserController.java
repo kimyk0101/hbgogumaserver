@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import himedia.hbgoguma.repository.vo.GogumaUser;
 import himedia.hbgoguma.service.GogumaUserService;
+import jakarta.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/api/gogumauser")
@@ -29,10 +31,16 @@ public class GogumaUserController {
 		return ResponseEntity.ok(items);
 	}
 	
-//	POST : /api/gogumauser -> 기존 유저 찾기
-	@GetMapping("/nickname={nickname}&password={password}")
-	public ResponseEntity<GogumaUser> loginUser(@PathVariable String nickname, @PathVariable String password) {
-		GogumaUser loginUser = gogumaUserSerivce.loginUser(nickname, password);
+//	POST : /api/gogumauser/login -> 로그인
+	@PostMapping("/login")
+	public ResponseEntity<GogumaUser> loginUser(@RequestParam(value="email", required=false) String email, @RequestParam(value="password", required=false) String password, HttpSession session) {
+		if (email.length() == 0 || password.length() == 0) {
+			System.err.println("no email or password");
+			
+			return ResponseEntity.ofNullable(null);
+		}
+		
+		GogumaUser loginUser = gogumaUserSerivce.loginUser(email, password);
 		return ResponseEntity.ok(loginUser);
 	}
 	

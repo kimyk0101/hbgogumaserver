@@ -1,6 +1,7 @@
 package himedia.hbgoguma.mappers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,7 +14,7 @@ public interface GogumaUserMapper {
 //	<insert id="registerUser" parameterType="GogumaUser">
 	int registerUser(GogumaUser user);
 //	<select id="loginUser" resultType="GogumaUser">
-	GogumaUser loginUser(String nickname, String password);
+	GogumaUser loginUser(Map<String, String> userMap);
 //	<select id="selectByUid" parameterType="Long" resultType="GogumaUser">
 	GogumaUser selectByUid(Long uid);
 //	<update id="updateUser" parameterType="GogumaUser">
