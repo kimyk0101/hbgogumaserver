@@ -19,12 +19,16 @@ public class GogumaPostService {
 		return posts;
 	}
 	
+	public GogumaPost selectPostByPid(Long pid) {
+		return gogumaPostMapper.selectPostByPid(pid);
+	}
+	
 	public GogumaPost insertPost(GogumaPost post) {
 		gogumaPostMapper.insertPost(post);
 		
 		Long pid = post.getPid();
 		
-		return gogumaPostMapper.selectByPid(pid);
+		return gogumaPostMapper.selectPostByPid(pid);
 	}
 	
 	public GogumaPost updatePost(GogumaPost post) {

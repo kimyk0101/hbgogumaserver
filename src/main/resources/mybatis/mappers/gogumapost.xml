@@ -7,7 +7,7 @@
 	SELECT * FROM goguma_post ORDER BY pid DESC
 	</select>
 	
-	<select id="selectByPid"
+	<select id="selectPostByPid"
 		parameterType="Long"
 		resultType="gogumaPost">
 	SELECT * FROM goguma_post WHERE pid=#{pid}

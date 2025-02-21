@@ -20,19 +20,27 @@ import himedia.hbgoguma.service.GogumaPostService;
 @RequestMapping("/api/gogumapost")
 public class GogumaPostController {
 	@Autowired
-	private GogumaPostService gogumaPostSerivce;
+	private GogumaPostService gogumaPostService;
 	
 //	GET : /api/gogumapost
 	@GetMapping
 	public ResponseEntity<List<GogumaPost>> getAllPosts() {
-		List<GogumaPost> items = gogumaPostSerivce.selectAllPosts();
+		List<GogumaPost> items = gogumaPostService.selectAllPosts();
 		return ResponseEntity.ok(items);
+	}
+	
+//	GET : /api/gogumapost/{pid}
+	@GetMapping
+	public ResponseEntity<GogumaPost> selectPostByPid(@PathVariable Long pid) {
+		GogumaPost post = gogumaPostService.selectPostByPid(pid);
+		
+		return ResponseEntity.ok(post);
 	}
 	
 //	POST : /api/gogumapost -> 새로운 쇼핑 항목 생성
 	@PostMapping
 	public ResponseEntity<GogumaPost> createPost(@RequestBody GogumaPost post) {
-		GogumaPost savedPost = gogumaPostSerivce.insertPost(post);
+		GogumaPost savedPost = gogumaPostService.insertPost(post);
 		return ResponseEntity.ok(savedPost);	
 		//	ResponseEntity.created로 하는 것이 의미상 더 나을 수도 있다.
 	}
@@ -41,7 +49,7 @@ public class GogumaPostController {
 	@PutMapping("/{pid}")
 	public ResponseEntity<GogumaPost> updatePost(@RequestBody GogumaPost post, @PathVariable Long pid) {
 		post.setPid(pid);
-		GogumaPost updatedPost = gogumaPostSerivce.updatePost(post);
+		GogumaPost updatedPost = gogumaPostService.updatePost(post);
 		return ResponseEntity.ok(updatedPost);
 	}
 	
@@ -49,7 +57,7 @@ public class GogumaPostController {
 	@DeleteMapping("/{pid}")
 	//	Body에 실어 보낼 내용이 없음 -> Void
 	public ResponseEntity<Void> deletePost(@PathVariable Long pid) {
-		gogumaPostSerivce.deletePost(pid);
+		gogumaPostService.deletePost(pid);
 		return ResponseEntity.ok().<Void>build();
 	}
 }

@@ -11,11 +11,11 @@ public interface GogumaPostMapper {
 //	<select id="selectAllPosts" resultType="GogumaPost">
 	List<GogumaPost> selectAllPosts();
 //	<insert id="insertPost" parameterType="GogumaPost">
-	int insertPost(GogumaPost item);
-//	<select id="selectByNid" parameterType="Long" resultType="GogumaPost">
-	GogumaPost selectByPid(Long pid);
-//	<update id="updateNotification" parameterType="GogumaPost">
-	int updatePost(GogumaPost item);
-//	<delete id="deleteNotification" parameterType="Long">
-	int deletePost(Long id);
+	int insertPost(GogumaPost post);
+//	<select id="selectPostByPid" parameterType="Long" resultType="GogumaPost">
+	GogumaPost selectPostByPid(Long pid);
+//	<update id="updatePost" parameterType="GogumaPost">
+	int updatePost(GogumaPost post);
+//	<delete id="deletePost" parameterType="Long">
+	int deletePost(Long pid);
 }
