@@ -30,7 +30,7 @@ public class GogumaPostController {
 	}
 	
 //	GET : /api/gogumapost/{pid}
-	@GetMapping
+	@GetMapping("/{pid}")
 	public ResponseEntity<GogumaPost> selectPostByPid(@PathVariable Long pid) {
 		GogumaPost post = gogumaPostService.selectPostByPid(pid);
 		
