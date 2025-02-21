@@ -33,15 +33,22 @@ public class GogumaUserController {
 	
 //	POST : /api/gogumauser/login -> 로그인
 	@PostMapping("/login")
-	public ResponseEntity<GogumaUser> loginUser(@RequestParam(value="email", required=false) String email, @RequestParam(value="password", required=false) String password, HttpSession session) {
-		if (email.length() == 0 || password.length() == 0) {
-			System.err.println("no email or password");
+	public ResponseEntity<GogumaUser> loginUser(@RequestParam(value="nickname", required=false) String nickname, @RequestParam(value="password", required=false) String password, HttpSession session) {
+		if (nickname.length() == 0 || password.length() == 0) {
+			System.err.println("no nickname or password");
 			
 			return ResponseEntity.ofNullable(null);
 		}
 		
-		GogumaUser loginUser = gogumaUserSerivce.loginUser(email, password);
-		return ResponseEntity.ok(loginUser);
+		GogumaUser loginUser = gogumaUserSerivce.loginUser(nickname, password);
+		
+		if (loginUser != null) {
+			// 로그인 확인
+			session.setAttribute("loginUser", loginUser);
+			return ResponseEntity.ok(loginUser);
+		} else {
+			return ResponseEntity.ofNullable(null);
+		}
 	}
 	
 //	POST : /api/gogumauser -> 새로운 유저 항목 생성
