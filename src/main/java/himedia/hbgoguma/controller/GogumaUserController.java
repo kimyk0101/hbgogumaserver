@@ -51,6 +51,12 @@ public class GogumaUserController {
 		}
 	}
 	
+	@GetMapping("/logout")
+	public void logout(HttpSession session) {
+		session.removeAttribute("authUser");
+		session.invalidate();
+	}
+	
 //	POST : /api/gogumauser -> 새로운 유저 항목 생성
 	@PostMapping
 	public ResponseEntity<GogumaUser> createUser(@RequestBody GogumaUser user) {
