@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import himedia.hbgoguma.repository.vo.GogumaUser;
+import himedia.hbgoguma.repository.vo.GogumaLoginData;
 import himedia.hbgoguma.service.GogumaUserService;
 import jakarta.servlet.http.HttpSession;
 
@@ -33,14 +34,14 @@ public class GogumaUserController {
 	
 //	POST : /api/gogumauser/login -> 로그인
 	@PostMapping("/login")
-	public ResponseEntity<GogumaUser> loginUser(@RequestParam(value="nickname", required=false) String nickname, @RequestParam(value="password", required=false) String password, HttpSession session) {
-		if (nickname.length() == 0 || password.length() == 0) {
+	public ResponseEntity<GogumaUser> loginUser(@RequestBody GogumaLoginData loginData, HttpSession session) {
+		if (loginData.getUser_id().length() == 0 || loginData.getPassword().length() == 0) {
 			System.err.println("no nickname or password");
 			
 			return ResponseEntity.ofNullable(null);
 		}
 		
-		GogumaUser loginUser = gogumaUserSerivce.loginUser(nickname, password);
+		GogumaUser loginUser = gogumaUserSerivce.loginUser(loginData.getUser_id(), loginData.getPassword());
 		
 		if (loginUser != null) {
 			// 로그인 확인
