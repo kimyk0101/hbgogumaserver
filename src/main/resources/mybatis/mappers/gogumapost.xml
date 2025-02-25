@@ -4,7 +4,7 @@
 <mapper namespace="himedia.hbgoguma.mappers.GogumaPostMapper">
 	<select id="selectAllPosts" 
 		resultType="gogumaPost">
-	SELECT * FROM goguma_post ORDER BY pid DESC
+	SELECT a.*, b.nickname, b.thumbnail, b.user_rate FROM goguma_post a JOIN goguma_user b WHERE a.uid=b.uid ORDER BY pid DESC
 	</select>
 	
 	<select id="selectPostByPid"

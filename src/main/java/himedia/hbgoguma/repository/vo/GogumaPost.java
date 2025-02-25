@@ -28,4 +28,8 @@ public class GogumaPost {
 	private List<Long> user_list; 	// 구매 희망자 uid 리스트
 	private Integer report_cnt;		//	게시글 신고 횟수
 	private Date post_update;		// 게시글 게시시간
+	
+	private String nickname;		// 게시글 유저 닉네임
+	private String thumbnail;		// 게시 유저 썸네일
+	private String user_rate;		// 게시 유저 평점
 }
