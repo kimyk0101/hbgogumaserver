@@ -4,23 +4,23 @@
 <mapper namespace="himedia.hbgoguma.mappers.GogumaPostMapper">
 	<select id="selectAllPosts" 
 		resultType="gogumaPost">
-	SELECT a.*, b.nickname, b.thumbnail, b.user_rate FROM goguma_post a JOIN goguma_user b WHERE a.uid=b.uid ORDER BY pid DESC
+	SELECT post.*, user.nickname, user.thumbnail, user.user_rate FROM goguma_post AS post JOIN goguma_user AS user WHERE post.uid=user.uid ORDER BY pid DESC
 	</select>
 	
 	<select id="selectPostByPid"
 		parameterType="Long"
 		resultType="gogumaPost">
-	SELECT * FROM goguma_post WHERE pid=#{pid}
+	SELECT post.*, user.nickname, user.thumbnail, user.user_rate FROM goguma_post AS post JOIN goguma_user AS user WHERE pid=#{pid} AND post.uid=user.uid
 	</select>
 	
 	<insert id="insertPost" parameterType="gogumaPost">
-	INSERT INTO goguma_post (uid, selected_uid, loca_gu, loca_dong, post_title, post_photo, post_content, post_category, post_price, user_list, report_cnt)
-	VALUES (#{uid}, #{selected_uid}, #{loca_gu}, #{loca_dong}, #{post_title}, #{post_photo}, #{post_content}, #{post_category}, #{post_price}, #{user_list}, #{report_cnt})
+	INSERT INTO goguma_post (pid, selected_uid, loca_gu, loca_dong, post_title, post_photo, post_content, post_category, post_price, user_list, report_cnt)
+	VALUES (#{pid}, #{selected_uid}, #{loca_gu}, #{loca_dong}, #{post_title}, #{post_photo}, #{post_content}, #{post_category}, #{post_price}, #{user_list}, #{report_cnt})
 	</insert>
 	
 	<update id="updatePost" parameterType="gogumaPost">
 	UPDATE goguma_post SET
-	uid=#{uid}, selected_uid=#{selected_uid}, loca_gu=#{loca_gu}, loca_dong=#{loca_dong}, post_title=#{post_title}, 
+	pid=#{pid}, selected_uid=#{selected_uid}, loca_gu=#{loca_gu}, loca_dong=#{loca_dong}, post_title=#{post_title}, 
 	post_photo=#{post_photo}, post_content=#{post_content}, post_category=#{post_category}, post_price=#{post_price}, user_list=#{user_list}, report_cnt=#{report_cnt}
 	WHERE pid=#{pid}
 	</update>

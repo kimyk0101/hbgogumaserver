@@ -1,8 +1,10 @@
 package himedia.hbgoguma.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,11 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import himedia.hbgoguma.repository.vo.GogumaUser;
 import himedia.hbgoguma.repository.vo.GogumaLoginData;
+import himedia.hbgoguma.repository.vo.GogumaUser;
 import himedia.hbgoguma.service.GogumaUserService;
 import jakarta.servlet.http.HttpSession;
 
@@ -34,21 +35,21 @@ public class GogumaUserController {
 	
 //	POST : /api/gogumauser/login -> 로그인
 	@PostMapping("/login")
-	public ResponseEntity<GogumaUser> loginUser(@RequestBody GogumaLoginData loginData, HttpSession session) {		
+	public ResponseEntity<GogumaUser> loginUser(@RequestBody Optional<GogumaLoginData> loginData, HttpSession session) {		
 		//@note - 세션 정보가 있다면
-		if(session.getAttribute("loginUser") != null) {
+		if(session != null && session.getAttribute("loginUser") != null) {
 			GogumaUser loginUser = (GogumaUser)session.getAttribute("loginUser");
 			return ResponseEntity.ok(loginUser);
 		}
 		
 		//@note - 유저가 친 아이디나 비번이 없을 경우
-		if (loginData.getUser_id().length() == 0 || loginData.getPassword().length() == 0) {
+		if (loginData.get().getUser_id().length() == 0 || loginData.get().getPassword().length() == 0) {
 			System.err.println("no user_id or password");
 			
 			return ResponseEntity.ofNullable(null);
 		}
 		
-		GogumaUser loginUser = gogumaUserSerivce.loginUser(loginData.getUser_id(), loginData.getPassword());
+		GogumaUser loginUser = gogumaUserSerivce.loginUser(loginData.get().getUser_id(), loginData.get().getPassword());
 		
 		//@note - 로그인 성공
 		if (loginUser != null) {
@@ -64,7 +65,7 @@ public class GogumaUserController {
 	}
 	
 	//@note - 세선 정보 소멸
-	@GetMapping("/logout")
+	@PostMapping("/logout")
 	public void logout(HttpSession session) {
 		session.removeAttribute("authUser");
 		session.invalidate();
@@ -92,5 +93,17 @@ public class GogumaUserController {
 	public ResponseEntity<Void> deleteUser(@PathVariable Long uid) {
 		gogumaUserSerivce.deleteUser(uid);
 		return ResponseEntity.ok().<Void>build();
+	}
+	
+//	Session : /api/session -> 로그인 상태 확인
+	@GetMapping("/session")
+	public ResponseEntity<GogumaUser> getSessionUser(HttpSession session) {
+		GogumaUser loginUser = (GogumaUser) session.getAttribute("loginUser");
+		
+		if (loginUser != null) {
+			return ResponseEntity.ok(loginUser);
+		} else {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+		}
 	}
 }
