@@ -17,6 +17,7 @@ public class GogumaUser {
 	private Long uid;			// 유저 회원번호
 	private String name;		// 이름
 	private String nickname;	// 닉네임
+	private String user_id;		// 유저 아이디
 	private String password;	// 비밀번호
 	private String tel_number;	// 전화번호
 	private String email;		// 이메일

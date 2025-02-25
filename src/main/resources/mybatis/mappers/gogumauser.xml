@@ -17,11 +17,11 @@
 	<select id="loginUser"
 		parameterType="map"
 		resultType="GogumaUser">
-	SELECT * FROM goguma_user WHERE nickname=#{nickname} AND password=#{password}
+	SELECT * FROM goguma_user WHERE user_id=#{user_id} AND password=#{password}
 	</select>
 	
 	<insert id="registerUser" parameterType="gogumaUser">
-	INSERT INTO goguma_user (name, nickname, password, tel_number, email, 
+	INSERT INTO goguma_user (name, nickname, user_id, password, tel_number, email, 
 							loca_gu, loca_dong, thumbnail, recommend_uid, pumpkin_point, 
 							user_rate, register_date, is_deleted, is_admin)
 	VALUES (#{name}, #{nickname}, #{password}, #{tel_number}, #{email}, #{loca_gu}, 
@@ -31,7 +31,7 @@
 	
 	<update id="updateUser" parameterType="gogumaUser">
 	UPDATE goguma_user SET
-	name=#{name}, nickname=#{nickname}, password=#{password}, tel_number=#{tel_number}, 
+	name=#{name}, nickname=#{nickname}, user_id=#{user_id}, password=#{password}, tel_number=#{tel_number}, 
 	email=#{email}, loca_gu=#{loca_gu}, loca_dong=#{loca_dong}, thumbnail=#{thumbnail}, 
 	recommend_uid=#{recommend_uid}, pumpkin_point=#{pumpkin_point}, user_rate=#{user_rate}, 
 	register_date=#{register_date}, is_deleted=#{is_deleted}, is_admin=#{is_admin}
