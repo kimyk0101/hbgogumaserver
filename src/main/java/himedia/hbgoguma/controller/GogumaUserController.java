@@ -33,7 +33,7 @@ public class GogumaUserController {
 	}
 	
 //	POST : /api/gogumauser/login -> 로그인
-	@GetMapping("/login")
+	@PostMapping("/login")
 	public ResponseEntity<GogumaUser> loginUser(@RequestBody GogumaLoginData loginData, HttpSession session) {
 		if (loginData.getUser_id().length() == 0 || loginData.getPassword().length() == 0) {
 			System.err.println("no user_id or password");

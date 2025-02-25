@@ -22,9 +22,9 @@ public class GogumaUserService {
 		return users;
 	}
 	
-	public GogumaUser loginUser(String nickname, String password) {
+	public GogumaUser loginUser(String user_id, String password) {
 		Map<String, String> userMap = new HashMap<>();
-		userMap.put("nickname",nickname);
+		userMap.put("user_id", user_id);
 		userMap.put("password", password);
 		
 		GogumaUser user = gogumaUserMapper.loginUser(userMap);
