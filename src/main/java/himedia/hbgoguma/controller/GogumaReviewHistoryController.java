@@ -24,20 +24,20 @@ public class GogumaReviewHistoryController {
 	
 //	GET : /api/gogumareview
 	@GetMapping
-	public ResponseEntity<List<GogumaReviewHistory>> getAllReviews() {
+	public ResponseEntity<List<GogumaReviewHistory>> selectAllReviews() {
 		List<GogumaReviewHistory> reports = gogumaReviewHistoryService.selectAllReviews();
 		return ResponseEntity.ok(reports);
 	}
 	
-//	POST : /api/gogumareview -> 새로운 신고 항목 생성
+//	POST : /api/gogumareview -> 새로운 리뷰 생성
 	@PostMapping
-	public ResponseEntity<GogumaReviewHistory> createReview(@RequestBody GogumaReviewHistory review) {
+	public ResponseEntity<GogumaReviewHistory> insertReview(@RequestBody GogumaReviewHistory review) {
 		GogumaReviewHistory savedReview = gogumaReviewHistoryService.insertReview(review);
 		return ResponseEntity.ok(savedReview);	
 		//	ResponseEntity.created로 하는 것이 의미상 더 나을 수도 있다.
 	}
 	
-//	PUT : /api/gogumareview/{hid} -> 기존 신고 항목 수정
+//	PUT : /api/gogumareview/{hid} -> 기존 리뷰 항목 수정
 	@PutMapping("/{hid}")
 	public ResponseEntity<GogumaReviewHistory> updateReview(@RequestBody GogumaReviewHistory review, @PathVariable Long hid) {
 		review.setHid(hid);
@@ -45,7 +45,7 @@ public class GogumaReviewHistoryController {
 		return ResponseEntity.ok(updatedReview);
 	}
 	
-//	DELETE : /api/gogumareview/{hid} -> 기존 신고 항목 삭제
+//	DELETE : /api/gogumareview/{hid} -> 기존 리뷰 항목 삭제
 	@DeleteMapping("/{hid}")
 	//	Body에 실어 보낼 내용이 없음 -> Void
 	public ResponseEntity<Void> deleteReview(@PathVariable Long hid) {
