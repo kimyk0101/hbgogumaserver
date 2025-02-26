@@ -23,6 +23,12 @@
 	receive_uid=#{receive_uid}, send_uid=#{send_uid}, noti_category=#{noti_category}, is_read=#{is_read} 
 	WHERE nid=#{nid}
 	</update>
+	
+	<update id="readNotification" parameterType="Long">
+	UPDATE goguma_notification SET
+	is_read=#{is_read} 
+	WHERE nid=#{nid}
+	</update>
 
 	<delete id="deleteNotification" parameterType="Long">
 	DELETE FROM goguma_notification WHERE nid=#{nid}

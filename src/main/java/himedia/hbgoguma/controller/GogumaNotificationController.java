@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -50,6 +51,13 @@ public class GogumaNotificationController {
 	public ResponseEntity<GogumaNotification> updateNotification(@RequestBody GogumaNotification noti, @PathVariable Long nid) {
 		noti.setNid(nid);
 		GogumaNotification updatedNoti = gogumaNotificationService.updateNotification(noti);
+		return ResponseEntity.ok(updatedNoti);
+	}
+	
+//	PATCH : /api/gogumanotification/{nid}
+	@PatchMapping("/{nid}")
+	public ResponseEntity<GogumaNotification> readNotification(@PathVariable Long nid) {
+		GogumaNotification updatedNoti = gogumaNotificationService.readNotification(nid);
 		return ResponseEntity.ok(updatedNoti);
 	}
 	

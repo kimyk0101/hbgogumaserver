@@ -39,6 +39,12 @@ public class GogumaNotificationService {
 		return noti;
 	}
 	
+	public GogumaNotification readNotification(Long nid) {
+		gogumaNotiMapper.readNotification(nid);
+		
+		return gogumaNotiMapper.selectByNid(nid);
+	}
+	
 	public int deleteNotification(Long nid) {
 		return gogumaNotiMapper.deleteNotification(nid);
 	}
