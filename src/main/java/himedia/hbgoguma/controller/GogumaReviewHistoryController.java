@@ -17,7 +17,7 @@ import himedia.hbgoguma.repository.vo.GogumaReviewHistory;
 import himedia.hbgoguma.service.GogumaReviewHistoryService;
 
 @RestController
-@RequestMapping("/api/gogumareviewhistory")
+@RequestMapping("/api/gogumareview")
 public class GogumaReviewHistoryController {
 	@Autowired
 	private GogumaReviewHistoryService gogumaReviewHistoryService;
