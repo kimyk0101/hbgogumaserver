@@ -16,6 +16,7 @@ import lombok.ToString;
 public class GogumaChat {
 	 private long cid;
 	 private long pid;
+	 private long writer_uid;
 	 private long seller_uid;
 	 private long buyer_uid;
 	 private String chat_content;

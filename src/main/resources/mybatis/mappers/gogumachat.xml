@@ -20,13 +20,13 @@
 	</select>
 	
 	<insert id="insertChat" parameterType="gogumaChat">
-	INSERT INTO goguma_chat (pid, seller_uid, buyer_uid, chatContent)
-	VALUES(#{pid}, #{seller_uid}, #{buyer_uid}, #{chatContent})
+	INSERT INTO goguma_chat (pid, writer_uid, seller_uid, buyer_uid, chat_content)
+	VALUES(#{pid}, #{writer_uid}, #{seller_uid}, #{buyer_uid}, #{chat_content})
 	</insert>
 	
 	<update id="updateChat" parameterType="gogumaChat">
 	UPDATE goguma_chat SET
-	pid=#{pid}, seller_uid=#{seller_uid}, buyer_uid=#{buyer_uid}, chatContent=#{chatContent} 
+	pid=#{pid}, writer_uid=#{writer_uid}, seller_uid=#{seller_uid}, buyer_uid=#{buyer_uid}, chat_content=#{chat_content} 
 	WHERE cid=#{cid}
 	</update>
 
