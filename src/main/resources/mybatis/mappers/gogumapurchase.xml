@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="himedia.hbgoguma.mappers.GogumaPurchaseMapper">
+	<select id="selectAllPurchases" 
+		resultType="gogumaPurchase">
+	SELECT * FROM goguma_purchase ORDER BY id DESC
+	</select>
+	
+	<select id="selectPurchaseById"
+		parameterType="Long"
+		resultType="gogumaPurchase">
+	SELECT * FROM goguma_purchase WHERE id=#{id}
+	</select>
+	
+	<insert id="insertPurchase" parameterType="gogumaPurchase">
+	INSERT INTO goguma_purchase (seller_uid, buyer_uid, pid, price)
+	VALUES (#{seller_uid}, #{buyer_uid}, #{pid}, #{price})
+	</insert>
+	
+	<update id="updatePost" parameterType="gogumaPost">
+	UPDATE goguma_purchase SET
+	seller_uid=#{seller_uid}, buyer_uid=#{buyer_uid}, pid=#{pid}, price=#{price}
+	WHERE id=#{id}
+	</update>
+
+	<delete id="deletePost" parameterType="Long">
+	DELETE FROM goguma_purchase WHERE id=#{id}
+	</delete>
+</mapper>

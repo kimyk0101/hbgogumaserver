@@ -11,6 +11,7 @@
 		<typeAlias alias="gogumaNoti" type="himedia.hbgoguma.repository.vo.GogumaNotification" />
 		<typeAlias alias="gogumaReview" type="himedia.hbgoguma.repository.vo.GogumaReviewHistory" />
 		<typeAlias alias="gogumaReport" type="himedia.hbgoguma.repository.vo.GogumaReport" />
+		<typeAlias alias="gogumaPurchase" type="himedia.hbgoguma.repository.vo.GogumaPurchase" />
 	</typeAliases>
 	
 	<!-- 타입 핸들러 등록 -->
@@ -26,5 +27,6 @@
 		<mapper resource="mybatis/mappers/gogumanoti.xml" />
 		<mapper resource="mybatis/mappers/gogumareview.xml" />
 		<mapper resource="mybatis/mappers/gogumareport.xml" />
+		<mapper resource="mybatis/mappers/gogumapurchase.xml" />
 	</mappers>
 </configuration>
