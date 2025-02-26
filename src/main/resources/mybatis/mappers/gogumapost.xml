@@ -13,6 +13,16 @@
 	SELECT post.*, user.nickname, user.thumbnail, user.user_rate FROM goguma_post AS post JOIN goguma_user AS user WHERE pid=#{pid} AND post.uid=user.uid
 	</select>
 	
+	<select id="selectRelatedPosts"
+		resultType="gogumaPost">
+	SELECT post.*, user.nickname, user.thumbnail, user.user_rate
+	FROM goguma_post AS post
+	LEFT JOIN goguma_user AS user ON post.uid = user.uid
+	WHERE post.post_category = #{post_category}
+  	AND post.loca_gu = #{loca_gu}
+  	AND post.loca_dong = #{loca_dong} ORDER BY user_rate DESC LIMIT 5
+	</select>
+	
 	<insert id="insertPost" parameterType="gogumaPost">
 	INSERT INTO goguma_post (uid, selected_uid, loca_gu, loca_dong, post_title, post_photo, post_content, post_category, post_price, user_list, report_cnt)
 	VALUES (#{uid}, #{selected_uid}, #{loca_gu}, #{loca_dong}, #{post_title}, #{post_photo}, #{post_content}, #{post_category}, #{post_price}, #{user_list}, #{report_cnt})

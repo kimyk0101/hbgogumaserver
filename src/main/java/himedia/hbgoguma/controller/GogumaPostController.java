@@ -45,6 +45,16 @@ public class GogumaPostController {
 		//	ResponseEntity.created로 하는 것이 의미상 더 나을 수도 있다.
 	}
 	
+//GET : /api/gogumapost/{pid}/related
+	@GetMapping("/{pid}/related")
+	public ResponseEntity<List<GogumaPost>> selectRelatedPosts(@PathVariable Long pid) {
+		GogumaPost post = gogumaPostService.selectPostByPid(pid);
+		
+		GogumaPost relatedPosts = gogumaPostService.selectRelatedPosts(post);
+		
+		return ResponseEntity.ok(relatedPosts);
+	}
+	
 //	PUT : /api/gogumapost/{pid} -> 기존 쇼핑 항목 수정
 	@PutMapping("/{pid}")
 	public ResponseEntity<GogumaPost> updatePost(@RequestBody GogumaPost post, @PathVariable Long pid) {

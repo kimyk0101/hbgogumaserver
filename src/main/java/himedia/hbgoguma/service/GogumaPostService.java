@@ -23,6 +23,12 @@ public class GogumaPostService {
 		return gogumaPostMapper.selectPostByPid(pid);
 	}
 	
+	public List<GogumaPost> selectRelatedPosts(GogumaPost post) {
+		List<GogumaPost> posts = gogumaPostMapper.selectRelatedPosts(post);
+		
+		return posts;
+	}
+	
 	public GogumaPost insertPost(GogumaPost post) {
 		gogumaPostMapper.insertPost(post);
 		
