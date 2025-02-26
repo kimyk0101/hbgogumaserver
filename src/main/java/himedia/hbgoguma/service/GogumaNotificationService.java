@@ -19,6 +19,12 @@ public class GogumaNotificationService {
 		return notifications;
 	}
 	
+	public GogumaNotification selectNotiByNid(Long nid) {
+		GogumaNotification notification = gogumaNotiMapper.selectByNid(nid);
+		
+		return notification;
+	}
+	
 	public GogumaNotification insertNotification(GogumaNotification noti) {
 		gogumaNotiMapper.insertNotification(noti);
 		

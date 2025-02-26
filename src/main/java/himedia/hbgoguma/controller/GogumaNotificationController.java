@@ -29,6 +29,14 @@ public class GogumaNotificationController {
 		return ResponseEntity.ok(notifications);
 	}
 	
+// GET : /api/gogumanotification/{nid}
+	@GetMapping("/{nid}")
+	public ResponseEntity<GogumaNotification> selectNotiByNid(@PathVariable Long nid) {
+		GogumaNotification noti = gogumaNotificationService.selectNotiByNid(nid);
+		
+		return ResponseEntity.ok(noti);
+	}
+	
 //	POST : /api/gogumanotification -> 새로운 알람 항목 생성
 	@PostMapping
 	public ResponseEntity<GogumaNotification> createNotification(@RequestBody GogumaNotification noti) {
