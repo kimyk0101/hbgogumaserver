@@ -39,7 +39,7 @@ public class GogumaPostController {
 	
 //	POST : /api/gogumapost -> 새로운 쇼핑 항목 생성
 	@PostMapping
-	public ResponseEntity<GogumaPost> createPost(@RequestBody GogumaPost post) {
+	public ResponseEntity<GogumaPost> insertPost(@RequestBody GogumaPost post) {
 		GogumaPost savedPost = gogumaPostService.insertPost(post);
 		return ResponseEntity.ok(savedPost);	
 		//	ResponseEntity.created로 하는 것이 의미상 더 나을 수도 있다.
