@@ -14,15 +14,21 @@ public class GogumaChatService {
 	private GogumaChatMapper gogumaChatMapper;
 	
 	public List<GogumaChat> selectAllChats() {
-		List<GogumaChat> notifications = gogumaChatMapper.selectAllChats();
+		List<GogumaChat> chats = gogumaChatMapper.selectAllChats();
 		
-		return notifications;
+		return chats;
 	}
 	
-	public GogumaChat insertChat(GogumaChat noti) {
-		gogumaChatMapper.insertChat(noti);
+	public List<GogumaChat> selectChatsByPid(Long pid) {
+		List<GogumaChat> chats = gogumaChatMapper.selectChatsByPid(pid);
 		
-		Long cid = noti.getCid();
+		return chats;
+	}
+	
+	public GogumaChat insertChat(GogumaChat chat) {
+		gogumaChatMapper.insertChat(chat);
+		
+		Long cid = chat.getCid();
 		
 		return gogumaChatMapper.selectChatByCid(cid);
 	}

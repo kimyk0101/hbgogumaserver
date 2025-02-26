@@ -7,6 +7,12 @@
 	SELECT * FROM goguma_chat ORDER BY cid DESC
 	</select>
 	
+	<select id="selectChatsByPid"
+		parameterType="Long"
+		resultType="gogumaChat">
+	SELECT * FROM goguma_chat WHERE pid=#{pid}	
+	</select>
+	
 	<select id="selectChatByCid"
 		parameterType="Long"
 		resultType="gogumaChat">

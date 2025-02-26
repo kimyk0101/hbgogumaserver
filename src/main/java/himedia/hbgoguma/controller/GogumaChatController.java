@@ -29,6 +29,14 @@ public class GogumaChatController {
 		return ResponseEntity.ok(chats);
 	}
 	
+// GET : /api/gogumachat/{pid}
+	@GetMapping("/{pid}")
+	public ResponseEntity<List<GogumaChat>> getChatsByPid(@PathVariable Long pid) {
+		List<GogumaChat> chats = gogumaChatService.selectChatsByPid(pid);
+		
+		return ResponseEntity.ok(chats);
+	}
+	
 //	POST : /api/gogumachat -> 새로운 알람 항목 생성
 	@PostMapping
 	public ResponseEntity<GogumaChat> createChat(@RequestBody GogumaChat chat) {

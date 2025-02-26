@@ -18,6 +18,6 @@ public class GogumaChat {
 	 private long pid;
 	 private long seller_uid;
 	 private long buyer_uid;
-	 private String chatContent;
-	 private Date updateTime;
+	 private String chat_content;
+	 private Date upd_date;
 }
