@@ -37,22 +37,22 @@ public class GogumaPostController {
 		return ResponseEntity.ok(post);
 	}
 	
+	//GET : /api/gogumapost/{pid}/related
+	@GetMapping("/{pid}/related")
+	public ResponseEntity<List<GogumaPost>> selectRelatedPosts(@PathVariable Long pid) {
+		GogumaPost post = gogumaPostService.selectPostByPid(pid);
+			
+		List<GogumaPost> relatedPosts = gogumaPostService.selectRelatedPosts(post);
+			
+		return ResponseEntity.ok(relatedPosts);
+	}
+	
 //	POST : /api/gogumapost -> 새로운 쇼핑 항목 생성
 	@PostMapping
 	public ResponseEntity<GogumaPost> insertPost(@RequestBody GogumaPost post) {
 		GogumaPost savedPost = gogumaPostService.insertPost(post);
 		return ResponseEntity.ok(savedPost);	
 		//	ResponseEntity.created로 하는 것이 의미상 더 나을 수도 있다.
-	}
-	
-//GET : /api/gogumapost/{pid}/related
-	@GetMapping("/{pid}/related")
-	public ResponseEntity<List<GogumaPost>> selectRelatedPosts(@PathVariable Long pid) {
-		GogumaPost post = gogumaPostService.selectPostByPid(pid);
-		
-		GogumaPost relatedPosts = gogumaPostService.selectRelatedPosts(post);
-		
-		return ResponseEntity.ok(relatedPosts);
 	}
 	
 //	PUT : /api/gogumapost/{pid} -> 기존 쇼핑 항목 수정
