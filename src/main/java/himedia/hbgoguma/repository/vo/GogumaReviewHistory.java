@@ -18,7 +18,7 @@ public class GogumaReviewHistory {
 	private Long buyer_uid;			// 구매 후기글 작성자 유저번호
 	private Long seller_uid;		// 구매 게시글 올렸던 작성자 유저번호
 	private String review_content;	// 구매 후기글 내용
-	private Float review_point;		// 판매자 대상 평점
-	private Integer rewardpoint;	// 후기글 작성 보상 포인트
+	private Integer review_point;	// 판매자 대상 평점
+	private Integer reward_point;	// 후기글 작성 보상 포인트
 	private Date upd_date;		// 후기글 작성 시간
 }
