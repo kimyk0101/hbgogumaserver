@@ -14,7 +14,7 @@ public interface GogumaUserMapper {
 //	<insert id="registerUser" parameterType="GogumaUser">
 	int registerUser(GogumaUser user);
 //	<select id="loginUser" resultType="GogumaUser">
-	GogumaUser loginUser(Map<String, String> userMap);
+	GogumaUser loginUser(String user_id, String password);
 //	<select id="selectByUid" parameterType="Long" resultType="GogumaUser">
 	GogumaUser selectByUid(Long uid);
 //	<update id="updateUser" parameterType="GogumaUser">

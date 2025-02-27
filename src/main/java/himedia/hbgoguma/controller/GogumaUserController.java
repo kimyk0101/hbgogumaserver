@@ -35,7 +35,7 @@ public class GogumaUserController {
 	
 //	POST : /api/gogumauser/login -> 로그인
 	@PostMapping("/login")
-	public ResponseEntity<GogumaUser> loginUser(@RequestBody Optional<GogumaLoginData> loginData, HttpSession session) {		
+	public ResponseEntity<GogumaUser> loginUser(@RequestBody GogumaLoginData loginData, HttpSession session) {		
 		//@note - 세션 정보가 있다면
 		if(session != null && session.getAttribute("loginUser") != null) {
 			GogumaUser loginUser = (GogumaUser)session.getAttribute("loginUser");
@@ -43,13 +43,13 @@ public class GogumaUserController {
 		}
 		
 		//@note - 유저가 친 아이디나 비번이 없을 경우
-		if (loginData.get().getUser_id().length() == 0 || loginData.get().getPassword().length() == 0) {
+		if (loginData.getUser_id().length() == 0 || loginData.getPassword().length() == 0) {
 			System.err.println("no user_id or password");
 			
 			return ResponseEntity.ofNullable(null);
 		}
 		
-		GogumaUser loginUser = gogumaUserSerivce.loginUser(loginData.get().getUser_id(), loginData.get().getPassword());
+		GogumaUser loginUser = gogumaUserSerivce.loginUser(loginData);
 		
 		//@note - 로그인 성공
 		if (loginUser != null) {
