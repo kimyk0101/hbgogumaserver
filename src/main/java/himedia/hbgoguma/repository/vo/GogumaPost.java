@@ -1,7 +1,7 @@
 package himedia.hbgoguma.repository.vo;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Map;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,7 +25,7 @@ public class GogumaPost {
 	private String post_content; 	// 게시글 내용
 	private Integer post_category;	// 게시글 카데고리
 	private Integer post_price;		// 게시글 가격
-	private List<Long> user_list; 	// 구매 희망자 uid 리스트
+	private Map<Long, String> user_list; 	// 구매 희망자 uid 리스트
 	private Integer report_cnt;		//	게시글 신고 횟수
 	private Date upd_date;		// 게시글 게시시간
 	

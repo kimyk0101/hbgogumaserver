@@ -17,6 +17,7 @@
 	<!-- 타입 핸들러 등록 -->
 	<typeHandlers>
 	    <typeHandler handler="himedia.hbgoguma.typehandler.JsonListTypeHandler" javaType="java.util.List"/>
+	    <typeHandler handler="himedia.hbgoguma.typehandler.JsonMapTypeHandler" javaType="java.util.Map"/>
 	</typeHandlers>
 
 	<!-- Mapper 등록 -->

@@ -26,7 +26,7 @@
 	
 	<update id="updateReview" parameterType="gogumaReview">
 	UPDATE goguma_review_history SET
-	send_uid=#{seller_uid}, buyer_uid=#{buyer_uid}, review_content=#{review_content}, review_point=#{review_point}, reward_point=#{reward_point}
+	seller_uid=#{seller_uid}, buyer_uid=#{buyer_uid}, review_content=#{review_content}, review_point=#{review_point}, reward_point=#{reward_point}
 	WHERE hid=#{hid}
 	</update>
 
