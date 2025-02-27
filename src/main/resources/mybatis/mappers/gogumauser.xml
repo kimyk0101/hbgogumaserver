@@ -24,7 +24,7 @@
 	INSERT INTO goguma_user (name, nickname, user_id, password, tel_number, email, 
 							loca_gu, loca_dong, thumbnail, recommend_uid, pumpkin_point, 
 							user_rate, register_date, is_deleted, is_admin)
-	VALUES (#{name}, #{nickname}, #{password}, #{tel_number}, #{email}, #{loca_gu}, 
+	VALUES (#{name}, #{nickname}, #{user_id}, #{password}, #{tel_number}, #{email}, #{loca_gu}, 
 			#{loca_dong}, #{thumbnail}, #{recommend_uid}, #{pumpkin_point}, #{user_rate}, 
 			#{register_date}, #{is_deleted}, #{is_admin})
 	</insert>
