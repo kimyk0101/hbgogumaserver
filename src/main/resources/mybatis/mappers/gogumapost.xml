@@ -30,7 +30,7 @@
 	
 	<update id="updatePost" parameterType="gogumaPost">
 	UPDATE goguma_post SET
-	pid=#{pid}, selected_uid=#{selected_uid}, loca_gu=#{loca_gu}, loca_dong=#{loca_dong}, post_title=#{post_title}, 
+	uid=#{uid}, selected_uid=#{selected_uid}, loca_gu=#{loca_gu}, loca_dong=#{loca_dong}, post_title=#{post_title}, 
 	post_photo=#{post_photo}, post_content=#{post_content}, post_category=#{post_category}, post_price=#{post_price}, user_list=#{user_list}, report_cnt=#{report_cnt}
 	WHERE pid=#{pid}
 	</update>
