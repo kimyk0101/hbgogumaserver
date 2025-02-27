@@ -25,8 +25,8 @@ public class GogumaPostController {
 //	GET : /api/gogumapost
 	@GetMapping
 	public ResponseEntity<List<GogumaPost>> getAllPosts() {
-		List<GogumaPost> items = gogumaPostService.selectAllPosts();
-		return ResponseEntity.ok(items);
+		List<GogumaPost> posts = gogumaPostService.selectAllPosts();
+		return ResponseEntity.ok(posts);
 	}
 	
 //	GET : /api/gogumapost/{pid}
@@ -35,6 +35,14 @@ public class GogumaPostController {
 		GogumaPost post = gogumaPostService.selectPostByPid(pid);
 		
 		return ResponseEntity.ok(post);
+	}
+	
+	// GET : /api/gogumapost/my/{uid}
+	@GetMapping("/my/{uid}")
+	public ResponseEntity<List<GogumaPost>> selectMyPosts(@PathVariable Long uid) {
+		List<GogumaPost> posts = gogumaPostService.selectMyPosts(uid);
+		
+		return ResponseEntity.ok(posts);
 	}
 	
 	//GET : /api/gogumapost/{pid}/related

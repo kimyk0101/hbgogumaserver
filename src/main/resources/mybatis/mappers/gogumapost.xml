@@ -13,6 +13,12 @@
 	SELECT post.*, user.nickname, user.thumbnail, user.user_rate FROM goguma_post AS post JOIN goguma_user AS user WHERE pid=#{pid} AND post.uid=user.uid
 	</select>
 	
+	<select id="selectMyPosts"
+		parameterType="Long"
+		resultType="gogumaPost">
+	SELECT pid, post_title, post_photo, report_cnt, upd_date WHERE uid=#{uid}
+	</select>
+	
 	<select id="selectRelatedPosts"
 		resultType="gogumaPost">
 	SELECT post.*, user.nickname, user.thumbnail, user.user_rate
