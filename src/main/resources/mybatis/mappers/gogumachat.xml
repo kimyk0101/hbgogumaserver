@@ -10,7 +10,7 @@
 	<select id="selectChatsByPid"
 		parameterType="Long"
 		resultType="gogumaChat">
-	SELECT * FROM goguma_chat WHERE pid=#{pid}	
+	SELECT * FROM goguma_chat WHERE pid=#{pid}
 	</select>
 	
 	<select id="selectChatByCid"
@@ -26,7 +26,7 @@
 	
 	<update id="updateChat" parameterType="gogumaChat">
 	UPDATE goguma_chat SET
-	order_id=#{order_id} pid=#{pid}, writer_uid=#{writer_uid}, seller_uid=#{seller_uid}, buyer_uid=#{buyer_uid}, chat_content=#{chat_content} 
+	order_id=#{order_id}, pid=#{pid}, writer_uid=#{writer_uid}, seller_uid=#{seller_uid}, buyer_uid=#{buyer_uid}, chat_content=#{chat_content} 
 	WHERE cid=#{cid}
 	</update>
 
