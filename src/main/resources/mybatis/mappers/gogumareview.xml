@@ -7,6 +7,12 @@
 	SELECT * FROM goguma_review_history ORDER BY hid DESC
 	</select>
 	
+	<select id="selectMyReviews"
+		parameterType="Long"
+		resultType="gogumaReview">
+	SELECT review_point, review_content FROM goguma_review_history WHERE seller_uid=#{uid} ORDER BY upd_date DESC
+	</select>
+	
 	<select id="selectByHid"
 		parameterType="Long"
 		resultType="gogumaReview">

@@ -29,6 +29,13 @@ public class GogumaReviewHistoryController {
 		return ResponseEntity.ok(reports);
 	}
 	
+//	GET : /api/gogumareview
+	@GetMapping("/my/{uid}")
+	public ResponseEntity<List<GogumaReviewHistory>> selectMyReviews(@PathVariable Long uid) {
+		List<GogumaReviewHistory> reports = gogumaReviewHistoryService.selectMyReviews(uid);
+		return ResponseEntity.ok(reports);
+	}
+	
 //	POST : /api/gogumareview -> 새로운 리뷰 생성
 	@PostMapping
 	public ResponseEntity<GogumaReviewHistory> insertReview(@RequestBody GogumaReviewHistory review) {

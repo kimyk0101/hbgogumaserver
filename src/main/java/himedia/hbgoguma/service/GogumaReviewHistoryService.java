@@ -19,6 +19,11 @@ public class GogumaReviewHistoryService {
 		return reviews;
 	}
 	
+	public List<GogumaReviewHistory> selectMyReviews(Long uid) {
+		List<GogumaReviewHistory> reviews = gogumaReviewMapper.selectMyReviews(uid);
+		return reviews;
+	}
+	
 	public GogumaReviewHistory insertReview(GogumaReviewHistory review) {
 		gogumaReviewMapper.insertReview(review);
 		

@@ -10,6 +10,8 @@ import himedia.hbgoguma.repository.vo.GogumaReviewHistory;
 public interface GogumaReviewHistoryMapper {
 //	<select id="selectAllReviews" resultType="GogumaReviewHistory">
 	List<GogumaReviewHistory> selectAllReviews();
+//	<select id="selectMyReviews" parameterType="Long" resultType="GogumaReviewHistory">
+	List<GogumaReviewHistory> selectMyReviews(Long uid);
 //	<insert id="insertReview" parameterType="GogumaReviewHistory">
 	int insertReview(GogumaReviewHistory item);
 //	<select id="selectByHid" parameterType="Long" resultType="GogumaReviewHistory">
