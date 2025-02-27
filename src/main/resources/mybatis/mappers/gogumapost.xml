@@ -16,7 +16,7 @@
 	<select id="selectMyPosts"
 		parameterType="Long"
 		resultType="gogumaPost">
-	SELECT pid, post_title, post_photo, report_cnt, upd_date WHERE uid=#{uid}
+	SELECT pid, post_title, post_photo, report_cnt, upd_date FROM goguma_post WHERE uid=#{uid}
 	</select>
 	
 	<select id="selectRelatedPosts"
