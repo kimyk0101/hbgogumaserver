@@ -18,8 +18,8 @@ public interface GogumaPostMapper {
 	List<GogumaPost> selectMyPosts(Long uid);
 //	<select id="selectRelatedPosts" parameterType="Long" resultType="GogumaPost">	
 	List<GogumaPost> selectRelatedPosts(GogumaPost post);
-	
-	GogumaPost updatePostUserList(GogumaPost post);
+//	<update id="updatePostUserList" parameterType="GogumaPost">
+	int updatePostUserList(GogumaPost post);
 	//	<update id="updatePost" parameterType="GogumaPost">
 	int updatePost(GogumaPost post);
 //	<delete id="deletePost" parameterType="Long">

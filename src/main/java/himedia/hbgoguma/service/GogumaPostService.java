@@ -44,9 +44,9 @@ public class GogumaPostService {
 	}
 	
 	public GogumaPost updatePostUserList(GogumaPost post) {
-		GogumaPost updatedPost = gogumaPostMapper.updatePostUserList(post);
+		gogumaPostMapper.updatePostUserList(post);
 		
-		return updatedPost;
+		return post;
 	}
 	
 	public GogumaPost updatePost(GogumaPost post) {
