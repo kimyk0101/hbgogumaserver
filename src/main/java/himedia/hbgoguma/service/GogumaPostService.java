@@ -43,6 +43,12 @@ public class GogumaPostService {
 		return gogumaPostMapper.selectPostByPid(pid);
 	}
 	
+	public GogumaPost updatePostUserList(GogumaPost post) {
+		GogumaPost updatedPost = gogumaPostMapper.updatePostUserList(post);
+		
+		return updatedPost;
+	}
+	
 	public GogumaPost updatePost(GogumaPost post) {
 		gogumaPostMapper.updatePost(post);
 		
