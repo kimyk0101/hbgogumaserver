@@ -40,10 +40,16 @@
 	post_photo=#{post_photo}, post_content=#{post_content}, post_category=#{post_category}, post_price=#{post_price}, user_list=#{user_list}, report_cnt=#{report_cnt}
 	WHERE pid=#{pid}
 	</update>
-	
+
 	<update id="updatePostUserList" parameterType="gogumaPost">
 	UPDATE goguma_post SET
 	user_list=#{user_list}
+	WHERE pid=#{pid}
+	</update>
+	
+	<update id="updatePostReportCnt" parameterType="gogumaPost">
+	UPDATE goguma_post SET
+	report_cnt=report_cnt+#{report_cnt}
 	WHERE pid=#{pid}
 	</update>
 

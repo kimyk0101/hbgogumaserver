@@ -49,6 +49,12 @@ public class GogumaPostService {
 		return post;
 	}
 	
+	public GogumaPost updatePostReportCnt(GogumaPost post) {
+		gogumaPostMapper.updatePostReportCnt(post);
+		
+		return post;
+	}
+	
 	public GogumaPost updatePost(GogumaPost post) {
 		gogumaPostMapper.updatePost(post);
 		

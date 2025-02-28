@@ -66,10 +66,19 @@ public class GogumaPostController {
 	}
 
 //	PATCH : /api/gogumapost/{pid} -> 기존 쇼핑 항목 수정
-	@PatchMapping("/{pid}")
+	@PatchMapping("/{pid}/userList")
 	public ResponseEntity<GogumaPost> updatePostUserList(@RequestBody GogumaPost post, @PathVariable Long pid) {
 		post.setPid(pid);
 		GogumaPost updatedPost = gogumaPostService.updatePostUserList(post);
+		return ResponseEntity.ok(updatedPost);
+	}
+	
+	@PatchMapping("/{pid}/reportCnt")
+	public ResponseEntity<GogumaPost> updatePostReportCnt(@RequestBody GogumaPost post, @PathVariable Long pid) {
+		post.setPid(pid);
+		
+		GogumaPost updatedPost = gogumaPostService.updatePostReportCnt(post);
+		
 		return ResponseEntity.ok(updatedPost);
 	}
 	
